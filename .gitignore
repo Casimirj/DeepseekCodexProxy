@@ -1,0 +1,9 @@
+# Secrets — never commit
+env
+
+# Node artifacts (installed locally by npm install)
+node_modules/
+
+
+# VS Code remote upload config (personal; may contain credentials)
+.vscode-upload.json

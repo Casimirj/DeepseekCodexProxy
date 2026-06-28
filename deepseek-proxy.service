@@ -1,0 +1,31 @@
+[Unit]
+Description=DeepSeek Codex Proxy (codeproxy)
+Documentation=https://github.com/nicepkg/codeproxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/appa/dotfiles/scripts/DeepseekCodexProxy
+ExecStart=/home/appa/dotfiles/scripts/DeepseekCodexProxy/run.sh
+
+# ── Error handling ──────────────────────────────────────────────────────
+Restart=always
+RestartSec=5s
+TimeoutStartSec=60s
+StartLimitBurst=5
+StartLimitIntervalSec=60s
+
+# ── Logging ─────────────────────────────────────────────────────────────
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=deepseek-proxy
+
+# ── Clean-up ────────────────────────────────────────────────────────────
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=10s
+
+[Install]
+WantedBy=multi-user.target
