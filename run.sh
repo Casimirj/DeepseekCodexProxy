@@ -32,6 +32,5 @@ export CODEPROXY_LOG_DIR="$LOG_DIR"
 
 # ── Launch the proxy ───────────────────────────────────────────────────
 exec "${THIS_DIR}/node_modules/.bin/codeproxy" \
-  --upstream-format openai-chat \
-  --base-url https://api.deepseek.com/v1 \
+  --config "${THIS_DIR}/config.json" \
   --apikey "${DEEPSEEK_API_KEY}"
